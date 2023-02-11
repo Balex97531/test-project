@@ -14,6 +14,9 @@ spring:
       ddl-auto: none
     show-sql: true
     console.enabled: true
+  h2:
+    console:
+      enabled: true
 
 server:
   error:
