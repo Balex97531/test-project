@@ -26,26 +26,26 @@ public class QuoteController {
             @RequestBody @Valid NewQuote newQuote
     ) throws UserNotFoundException {
         quoteService.createQuote(newQuote);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping(value = "/api/quotes/{quoteId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateQuote(@RequestBody @Valid UpdateQuote updateQuote) throws QuoteNotFoundException {
         quoteService.updateQuote(updateQuote);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping(value = "/api/quotes/{quoteId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity deleteQuote(@PathVariable Long quoteId) {
         quoteService.deleteQuote(quoteId);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.ok().build();
     }
 
 
     @GetMapping(value = "/api/quotes/{quoteId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<QuoteInfo> getQuote(@PathVariable Long quoteId) throws QuoteNotFoundException {
         QuoteInfo quoteInfo = mapToQuoteInfo(quoteService.getQuote(quoteId));
-        return ResponseEntity.status(HttpStatus.OK).body(quoteInfo);
+        return ResponseEntity.ok().body(quoteInfo);
     }
 
 
@@ -55,7 +55,7 @@ public class QuoteController {
     public ResponseEntity<QuoteInfo> getRandomQuote() {
 
 
-        return ResponseEntity.status(HttpStatus.OK).body(quoteInfo);
+        return ResponseEntity.ok().body(quoteInfo);
     }
 
 

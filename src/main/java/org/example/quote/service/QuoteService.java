@@ -22,8 +22,8 @@ import static org.example.quote.service.QuoteMapper.mapToQuoteModel;
 @AllArgsConstructor
 public class QuoteService {
 
-    private final QuoteRepository quoteRepository;
     private final UserService userService;
+    private final QuoteRepository quoteRepository;
 
     @Transactional
     public void createQuote(NewQuote newQuote) throws UserNotFoundException {
@@ -63,6 +63,11 @@ public class QuoteService {
             throw new QuoteNotFoundException();
         return entityOptional.get();
     }
+
+    public boolean isQuoteExists(Long quoteId) {
+        return quoteRepository.existsById(quoteId);
+    }
+
 
     /*
     public QuoteModel getRandomQuote() {

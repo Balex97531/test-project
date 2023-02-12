@@ -11,11 +11,11 @@ import lombok.Getter;
 @Getter
 public class NewUser {
     @NotBlank(message = "The name is required")
-    private String name;
+    private final String name;
     @NotBlank(message = "The email is required")
     @Email
-    private String email;
+    private final String email;
     @NotBlank(message = "The password is required")
-    private String password;
+    private final String password;
 
 }
