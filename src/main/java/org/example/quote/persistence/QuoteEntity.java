@@ -14,7 +14,8 @@ import java.time.OffsetDateTime;
 public class QuoteEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "quoteIdGenerator")
+    @SequenceGenerator(name = "quoteIdGenerator", sequenceName = "quotes_id_seq", allocationSize = 1)
     private Long quoteId;
     @Setter
     private String content;
