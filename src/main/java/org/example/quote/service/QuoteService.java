@@ -63,7 +63,8 @@ public class QuoteService {
             throw new QuoteNotFoundException();
         return entityOptional.get();
     }
-/*
+
+    /*
     public QuoteModel getRandomQuote() {
 
     }

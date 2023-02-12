@@ -1,15 +1,19 @@
 package org.example.quote.persistence;
 
+import org.example.quote.VoteType;
+
 import java.time.OffsetDateTime;
 
 
-public class VotesEntity {
+public class VoteEntity {
 
     private Long voteId;
 
     private OffsetDateTime voteMoment;
 
-    private Boolean voteResult;
+    private VoteType voteType;
+
+    private Long quoteId;
 
 
 }

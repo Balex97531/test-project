@@ -48,12 +48,15 @@ public class QuoteController {
         return ResponseEntity.status(HttpStatus.OK).body(quoteInfo);
     }
 
-    @GetMapping(value = "/api/quotes/random", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus getRandomQuote() {
-        return HttpStatus.OK;
-    }
+
 
   /*
+    @GetMapping(value = "/api/quotes/random", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<QuoteInfo> getRandomQuote() {
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(quoteInfo);
+    }
 
 
 

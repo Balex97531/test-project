@@ -1,4 +1,4 @@
-package org.example.quote.controller;
+package org.example.quote;
 
 
 public enum VoteType {

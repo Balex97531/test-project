@@ -1,6 +1,7 @@
 package org.example.quote.controller;
 
 import jakarta.validation.Valid;
+import org.example.quote.VoteType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

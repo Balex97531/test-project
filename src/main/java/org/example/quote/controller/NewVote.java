@@ -2,6 +2,7 @@ package org.example.quote.controller;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import org.example.quote.VoteType;
 
 
 @AllArgsConstructor

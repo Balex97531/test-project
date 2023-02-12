@@ -2,8 +2,8 @@
 <databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <include relativeToChangelogFile="true" file="sql-scripts/0001-create-users-table.sql"/>
-    <include relativeToChangelogFile="true" file="sql-scripts/0002-create-quote-table.sql"/>
-
-    <include relativeToChangelogFile="true" file="sql-scripts/0004-create-test-data.sql"/>
+    <include relativeToChangelogFile="true" file="sql-scripts/11-02-2023-001-create-users-table.sql"/>
+    <include relativeToChangelogFile="true" file="sql-scripts/11-02-2023-002-create-quotes-table.sql"/>
+    <include relativeToChangelogFile="true" file="sql-scripts/11-02-2023-003-create-votes-table.sql"/>
+    <include relativeToChangelogFile="true" file="sql-scripts/11-02-2023-004-create-test-data.sql"/>
 </databaseChangeLog>
