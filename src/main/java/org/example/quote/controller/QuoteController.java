@@ -4,14 +4,18 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.example.common.exceptions.QuoteNotFoundException;
 import org.example.common.exceptions.UserNotFoundException;
+import org.example.quote.VoteType;
 import org.example.quote.controller.dto.NewQuote;
 import org.example.quote.controller.dto.QuoteInfo;
 import org.example.quote.controller.dto.UpdateQuote;
+import org.example.quote.service.QuoteModel;
 import org.example.quote.service.QuoteService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.example.quote.controller.QuoteDtoMapper.mapToQuoteInfo;
 
@@ -54,21 +58,19 @@ public class QuoteController {
         return ResponseEntity.ok().body(quoteInfo);
     }
 
-
-
-  /*
-
-
-
     @GetMapping(value = "/api/quotes/top10", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus getTop10Quotes() {
-        return HttpStatus.OK;
+    public ResponseEntity<List<QuoteInfo>> getTop10Quotes() {
+        List<QuoteModel> quoteModelList = quoteService.get10Quotes(VoteType.UP_VOTE);
+        List<QuoteInfo> quoteInfoList = quoteModelList.stream().map(val -> mapToQuoteInfo(val)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(quoteInfoList);
     }
+
 
     @GetMapping(value = "/api/quotes/worse10", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus getWorse10Quotes() {
-        return HttpStatus.OK;
+    public ResponseEntity<List<QuoteInfo>> geWorse10Quotes() {
+        List<QuoteModel> quoteModelList = quoteService.get10Quotes(VoteType.DOWN_VOTE);
+        List<QuoteInfo> quoteInfoList = quoteModelList.stream().map(QuoteDtoMapper::mapToQuoteInfo).collect(Collectors.toList());
+        return ResponseEntity.ok().body(quoteInfoList);
     }
 
-*/
 }

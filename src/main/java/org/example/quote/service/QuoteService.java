@@ -3,6 +3,7 @@ package org.example.quote.service;
 import lombok.AllArgsConstructor;
 import org.example.common.exceptions.QuoteNotFoundException;
 import org.example.common.exceptions.UserNotFoundException;
+import org.example.quote.VoteType;
 import org.example.quote.controller.dto.NewQuote;
 import org.example.quote.controller.dto.UpdateQuote;
 import org.example.quote.persistence.QuoteEntity;
@@ -12,7 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.example.quote.service.QuoteMapper.mapToQuoteEntity;
 import static org.example.quote.service.QuoteMapper.mapToQuoteModel;
@@ -69,11 +72,16 @@ public class QuoteService {
     }
 
 
-
     public QuoteModel getRandomQuote() {
         QuoteEntity quoteEntity = quoteRepository.getRandomQuote();
         return mapToQuoteModel(quoteEntity);
     }
 
+    public List<QuoteModel> get10Quotes(VoteType voteType) {
+        List<QuoteEntity> quoteEntityList = quoteRepository.get10TopOrWorseQuotes(voteType.toString());
+        return quoteEntityList.stream()
+                .map(val -> mapToQuoteModel(val))
+                .collect(Collectors.toList());
+    }
 
 }
