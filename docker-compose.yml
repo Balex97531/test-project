@@ -1,0 +1,8 @@
+version: "3.2"
+
+services:
+  testproject:
+    container_name: java-test-project
+    image: balex97531/test-project-image
+    ports:
+      - 8080:8080
