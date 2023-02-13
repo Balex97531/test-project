@@ -7,10 +7,12 @@ import org.example.common.exceptions.VoteTypeNotValidException;
 import org.example.quote.VoteType;
 import org.example.quote.controller.dto.NewVote;
 import org.example.quote.service.VoteService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
@@ -26,11 +28,6 @@ public class VoteController {
         VoteType voteType = mapToVoteType(newVote.getVoteType());
         voteService.createVote(quoteId, voteType);
         return ResponseEntity.ok().build();
-    }
-
-    @GetMapping(value = "/api/quotes/{quoteId}/vote-graph", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus getVoteGraph() {
-        return HttpStatus.OK;
     }
 
     private VoteType mapToVoteType(String inputString) throws VoteTypeNotValidException {

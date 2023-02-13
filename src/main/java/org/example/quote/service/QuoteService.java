@@ -69,10 +69,11 @@ public class QuoteService {
     }
 
 
-    /*
-    public QuoteModel getRandomQuote() {
 
+    public QuoteModel getRandomQuote() {
+        QuoteEntity quoteEntity = quoteRepository.getRandomQuote();
+        return mapToQuoteModel(quoteEntity);
     }
-*/
+
 
 }

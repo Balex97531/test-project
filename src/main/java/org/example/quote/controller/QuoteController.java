@@ -48,15 +48,15 @@ public class QuoteController {
         return ResponseEntity.ok().body(quoteInfo);
     }
 
+    @GetMapping(value = "/api/quotes/random", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<QuoteInfo> getRandomQuote() {
+        QuoteInfo quoteInfo = mapToQuoteInfo(quoteService.getRandomQuote());
+        return ResponseEntity.ok().body(quoteInfo);
+    }
+
 
 
   /*
-    @GetMapping(value = "/api/quotes/random", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<QuoteInfo> getRandomQuote() {
-
-
-        return ResponseEntity.ok().body(quoteInfo);
-    }
 
 
 
